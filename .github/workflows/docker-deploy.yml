@@ -1,0 +1,49 @@
+name: Docker Deploy
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    uses: ./.github/workflows/docker-image.yml
+    secrets: inherit
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: prod
+      url: https://server.eiradir.net
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Docker Swarm connection
+        run: |
+          mkdir ~/.ssh
+          echo "${{ secrets.DOCKER_DEPLOY_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          echo "${{ secrets.DOCKER_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+      - name: Determine repository name
+        id: repository
+        run: echo "name=${REPOSITORY##*/}" >> $GITHUB_OUTPUT
+        env:
+          REPOSITORY: ${{ github.repository }}
+      - name: Log into Docker registry
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        with:
+          registry: ${{ needs.build.outputs.registry }}
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Deploy to Docker Swarm
+        run: |
+          export DB_HOST=${{ secrets.DB_HOST }}
+          export DB_DATABASE=${{ secrets.DB_DATABASE }}
+          export DB_USER=${{ secrets.DB_USER }}
+          export DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+          export DISCORD_WEBHOOK=${{ secrets.DISCORD_WEBHOOK }}
+          export DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}
+          export SENTRY_DSN=${{ secrets.SENTRY_DSN }}
+          export STACK_IMAGE=${{ needs.build.outputs.registry }}/${{ needs.build.outputs.image }}:${GITHUB_REF##*/v}
+          docker stack deploy --with-registry-auth --compose-file=stack.yml ${{ steps.repository.outputs.name }}
+        env:
+          DOCKER_HOST: ${{ secrets.DOCKER_DEPLOY_HOST }}

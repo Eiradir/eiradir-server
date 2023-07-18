@@ -1,0 +1,34 @@
+version: "3.3"
+
+services:
+  eiradir-server:
+    image: ${STACK_IMAGE}
+    networks:
+      - traefik
+    ports:
+      - "8147:8147"
+    tty: true
+    volumes:
+      - /opt/eiradir/server/maps:/app/maps
+      - /opt/eiradir/server/jdata:/app/jdata
+    environment:
+      SERVER__HOST: gs.eiradir.net
+      SERVER__TERMINAL: "false"
+      SERVER__MAPS: base,nature,player
+      DISCORD__TOKEN: ${DISCORD_TOKEN}
+      DISCORD__WEBHOOK: ${DISCORD_WEBHOOK}
+      DISCORD__INCLUDECHAT: "true"
+      DISCORD__INCLUDESYSTEM: "true"
+      SENTRY__DSN: ${SENTRY_DSN}
+    deploy:
+      restart_policy:
+        condition: any
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.services.eiradir-server.loadbalancer.server.port=8080"
+        - "traefik.http.routers.eiradir-server.rule=Host(`server.eiradir.net`)"
+        - "traefik.http.routers.eiradir-server.tls=true"
+
+networks:
+  traefik:
+    external: true

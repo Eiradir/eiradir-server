@@ -1,0 +1,15 @@
+server:
+  name: Eiradir Classic
+  host: localhost
+  port: 8147
+  httpPort: 8080
+  terminal: true
+auth:
+  authServerUrl: https://id.twelveiterations.com/realms/eiradir
+discord:
+  token:
+  webhook:
+  includeChat: true
+  includeSystem: false
+sentry:
+  dsn:

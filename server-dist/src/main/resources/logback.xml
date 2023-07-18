@@ -1,0 +1,25 @@
+<configuration>
+    <appender name="STDOUT" class="net.eiradir.server.console.TerminalAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <turboFilter class="ch.qos.logback.classic.turbo.MarkerFilter">
+        <Marker>PACKET</Marker>
+        <OnMatch>DENY</OnMatch>
+    </turboFilter>
+
+    <turboFilter class="ch.qos.logback.classic.turbo.MarkerFilter">
+        <Marker>EVENT</Marker>
+        <OnMatch>DENY</OnMatch>
+    </turboFilter>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+    <logger name="io.netty" level="INFO" />
+    <logger name="net.dv8tion.jda" level="INFO" />
+
+</configuration>

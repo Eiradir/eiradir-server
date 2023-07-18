@@ -1,0 +1,59 @@
+name: Build Image
+
+env:
+  DOCKER_REGISTRY: registry.twelveiterations.com
+  DOCKER_REGISTRY_SNAPSHOTS: registry-snapshots.twelveiterations.com
+
+on:
+  workflow_call:
+    outputs:
+      image:
+        description: 'The image name that was deployed'
+        value: ${{ jobs.build.outputs.image }}
+      registry:
+        description: 'The tags that were deployed, seperated by newlines'
+        value: ${{ jobs.build.outputs.registry }}
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      image: ${{ steps.repository.outputs.name }}
+      registry: ${{ steps.registry.outputs.url }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Locate Docker registry
+        id: registry
+        run: echo "url=${{ startsWith(github.ref, 'refs/tags/') && env.DOCKER_REGISTRY || env.DOCKER_REGISTRY_SNAPSHOTS }}" >> $GITHUB_OUTPUT
+      - name: Determine repository name
+        id: repository
+        run: echo "name=${REPOSITORY##*/}" >> $GITHUB_OUTPUT
+        env:
+          REPOSITORY: ${{ github.repository }}
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@57396166ad8aefe6098280995947635806a0e6ea
+        with:
+          images: ${{ steps.registry.outputs.url }}/${{ steps.repository.outputs.name }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+      - name: Log into Docker registry
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        with:
+          registry: ${{ steps.registry.outputs.url }}
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@c56af957549030174b10d6867f20e78cfd7debc5
+        with:
+          context: .
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
