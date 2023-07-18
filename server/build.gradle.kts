@@ -26,7 +26,7 @@ dependencies {
     implementation("org.apache.commons:commons-collections4:4.4")
 
     // Dependency Injection
-    api("io.insert-koin:koin-core:3.2.0")
+    api("io.insert-koin:koin-core:3.4.2")
 
     // Event Bus
     api("com.google.guava:guava:31.0.1-jre") // careful updating, guava made dumb choices
