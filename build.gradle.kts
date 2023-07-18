@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "1.8.20"
-    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.6"
+    id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
     id("org.sonarqube") version "3.3"
 }
 
