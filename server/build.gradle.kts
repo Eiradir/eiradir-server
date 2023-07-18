@@ -3,9 +3,8 @@ plugins {
     id("org.sonarqube") version "3.3"
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
-    kotlinOptions.jvmTarget = "17"
-    kotlinOptions.javaParameters = true
+kotlin {
+    jvmToolchain(17)
 }
 
 tasks.withType<Test> {
