@@ -30,3 +30,5 @@ allprojects {
         useJUnitPlatform()
     }
 }
+
+file("run").mkdir()
