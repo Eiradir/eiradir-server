@@ -3,6 +3,7 @@ package net.eiradir.server.map.generator
 import net.eiradir.server.map.tilemap.PersistentChunkedMap
 import java.awt.Color
 import java.io.File
+import java.io.InputStream
 import javax.imageio.ImageIO
 
 fun main() {
@@ -12,7 +13,13 @@ fun main() {
 object ImageToWorldConverter {
 
     fun run(worldImageFile: File, mapsDirectory: File, name: String) {
-        val input = ImageIO.read(worldImageFile)
+        worldImageFile.inputStream().use {
+            run(it, mapsDirectory, name)
+        }
+    }
+
+    fun run(worldImageStream: InputStream, mapsDirectory: File, name: String) {
+        val input = ImageIO.read(worldImageStream)
         val registries = GeneratorUtils.defaultRegistries()
         val writeStorage = PersistentChunkedMap(registries, mapsDirectory, name)
         val chunkSizeX = input.width / writeStorage.descriptor.size
@@ -46,7 +53,5 @@ object ImageToWorldConverter {
         }
 
         writeStorage.saveAllChanged()
-
-        ImageExporter.run(mapsDirectory, name, File(mapsDirectory, "$name-export"))
     }
 }
