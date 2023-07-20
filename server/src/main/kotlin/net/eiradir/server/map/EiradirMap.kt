@@ -60,6 +60,10 @@ data class EiradirMap(val name: String, val chunkedMap: ChunkedMap) {
         return chunkedMap.getLoadedChunks()
     }
 
+    fun isEmpty(): Boolean {
+        return chunkedMap.isEmpty()
+    }
+
     override fun toString(): String {
         return "EiradirMap(name='$name')"
     }

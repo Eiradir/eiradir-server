@@ -22,5 +22,6 @@ interface ChunkedMap {
     fun setTileAt(position: Vector3Int, tile: Tile?)
     fun getTileAt(position: Vector3Int): Tile?
     fun getLoadedChunks(): Collection<MapChunk>
+    fun isEmpty(): Boolean
     fun isChunkLoaded(chunkPos: ChunkDimensions): Boolean
 }

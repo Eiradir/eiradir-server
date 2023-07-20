@@ -54,6 +54,10 @@ class MemoryChunkedMap(override val registries: Registries, override val name: S
         return chunks.containsKey(chunkPos)
     }
 
+    override fun isEmpty(): Boolean {
+        return chunks.isEmpty()
+    }
+
     override fun toString(): String {
         return "MapCache(name='$name', descriptor=$descriptor, chunks=${chunks.size})"
     }

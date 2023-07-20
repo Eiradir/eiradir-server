@@ -31,6 +31,7 @@ import net.eiradir.server.commands.EntityCommandSource
 import net.eiradir.server.config.ServerConfig
 import net.eiradir.server.lifecycle.ServerSaveEvent
 import net.eiradir.server.lifecycle.ServerStartedEvent
+import net.eiradir.server.map.generator.ImageToWorldConverter
 import net.eiradir.server.nature.NatureGenerator
 import net.eiradir.server.plugin.EiradirServerPlugin
 import net.eiradir.server.session.ClientJoinedEvent
@@ -48,15 +49,12 @@ class MapServerPlugin : EiradirServerPlugin {
     private val engineQueue by inject<EngineQueue>()
     private val registries by inject<Registries>()
     private val mapManager by inject<MapManager>()
-    private val mapEntityManager by inject<MapEntityManager>()
     private val scopedMapManager by inject<ScopedMapManager>()
     private val entityLocationCache by inject<EntityLocationCache>()
-    private val entityService by inject<EntityService>()
     private val natureGenerator by inject<NatureGenerator>()
 
     private val idMapper = mapperFor<IdComponent>()
-    private val transformMapper = mapperFor<net.eiradir.server.entity.components.GridTransform>()
-    private val mapReferenceMapper = mapperFor<net.eiradir.server.entity.components.MapReference>()
+    private val mapReferenceMapper = mapperFor<MapReference>()
 
     @Subscribe
     fun onServerStarted(event: ServerStartedEvent) {
@@ -65,6 +63,13 @@ class MapServerPlugin : EiradirServerPlugin {
         }
         if (!mapManager.isLoaded(mapManager.defaultMap)) {
             mapManager.load(loadMapFromDisk(mapManager.defaultMap))
+        }
+
+        val baseMap = mapManager.getLoadedMapByName("base")
+        if (baseMap != null && baseMap.isEmpty()) {
+            javaClass.getResourceAsStream("/map-base.png")?.use {
+                ImageToWorldConverter.run(it, config.mapsDirectory, "base")
+            }
         }
     }
 
