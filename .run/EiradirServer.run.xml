@@ -1,5 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="EiradirServer" type="JetRunConfigurationType">
+    <envs>
+      <env name="TERM" value="dumb" />
+    </envs>
     <option name="MAIN_CLASS_NAME" value="net.eiradir.server.EiradirServerBootstrapKt" />
     <module name="eiradir.server-dist.main" />
     <shortenClasspath name="NONE" />
