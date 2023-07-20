@@ -112,6 +112,10 @@ class PersistentChunkedMap(override val registries: Registries, mapsDirectory: F
         return chunks.containsKey(chunkPos)
     }
 
+    override fun isEmpty(): Boolean {
+        return (mapDirectory.list()?.size ?: 0) == 0
+    }
+
     override fun toString(): String {
         return "MapStorage(name='$name', chunks=${chunks.size})"
     }
