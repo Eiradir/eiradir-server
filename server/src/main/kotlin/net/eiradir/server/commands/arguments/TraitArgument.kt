@@ -10,7 +10,7 @@ import net.eiradir.server.registry.Registries
 import net.eiradir.server.trait.Trait
 
 class TraitArgument(private val registries: Registries) : ArgumentType<Trait> {
-    override fun parse(reader: StringReader): Trait {
+    override fun <S> parse(reader: StringReader): Trait {
         val processName = reader.readUnquotedString()
         return registries.traits.getByName(processName) ?: throw ERROR_UNKNOWN_TRAIT.create(processName)
     }

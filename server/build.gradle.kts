@@ -66,7 +66,7 @@ dependencies {
     implementation("org.jline:jline:3.23.0")
     runtimeOnly("org.fusesource.jansi:jansi:2.4.0")
 
-    implementation("com.mojang:brigadier:1.0.18")
+    implementation("com.mojang:brigadier:1.0.500")
     implementation("io.sentry:sentry:6.25.2")
     implementation("net.dv8tion:JDA:4.4.1_353")
 }

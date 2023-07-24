@@ -1,7 +1,6 @@
 package net.eiradir.server.commands.arguments
 
 import com.badlogic.ashley.core.Entity
-import com.badlogic.gdx.math.Vector3
 import com.mojang.brigadier.StringReader
 import com.mojang.brigadier.arguments.ArgumentType
 import com.mojang.brigadier.context.CommandContext
@@ -10,7 +9,7 @@ import java.util.*
 
 class EntityArgument : ArgumentType<EntityProvider> {
 
-    override fun parse(reader: StringReader): EntityProvider {
+    override fun <S> parse(reader: StringReader): EntityProvider {
         when (val value = reader.readUnquotedString()) {
             "-c" -> return EntityProvider.ByCursorPosition
             "-s" -> return EntityProvider.BySelection

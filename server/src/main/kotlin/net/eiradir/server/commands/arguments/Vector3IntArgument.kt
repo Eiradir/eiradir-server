@@ -14,7 +14,7 @@ import java.util.concurrent.CompletableFuture
 
 class Vector3IntArgument : ArgumentType<Coordinates> {
 
-    override fun parse(reader: StringReader): Coordinates {
+    override fun <S> parse(reader: StringReader): Coordinates {
         return Coordinates.parseCoordinates(reader).getOrHandle { throw it }
     }
 
