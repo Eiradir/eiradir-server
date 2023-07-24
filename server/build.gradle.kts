@@ -68,6 +68,6 @@ dependencies {
 
     implementation("com.mojang:brigadier:1.0.18")
     implementation("io.sentry:sentry:6.25.2")
-    implementation("net.dv8tion:JDA:4.2.1_255")
+    implementation("net.dv8tion:JDA:4.4.1_353")
 }
 
