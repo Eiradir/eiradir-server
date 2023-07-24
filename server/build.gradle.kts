@@ -24,7 +24,7 @@ dependencies {
     api("io.insert-koin:koin-core:3.4.2")
 
     // Event Bus
-    api("com.google.guava:guava:31.0.1-jre") // careful updating, guava made dumb choices
+    api("com.google.guava:guava:31.1-jre") // careful updating, guava made dumb choices
 
     // Logging
     val slf4jVersion = "1.7.36"
