@@ -5,14 +5,10 @@ import com.mojang.brigadier.StringReader
 import com.mojang.brigadier.arguments.ArgumentType
 import com.mojang.brigadier.context.CommandContext
 import com.mojang.brigadier.exceptions.DynamicCommandExceptionType
-import net.eiradir.server.commands.CommandSource
-import net.eiradir.server.network.NetworkServer
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 
 class CommandSourceArgument(private val serverCommandSource: ServerCommandSource) : ArgumentType<CommandSourceProvider> {
 
-    override fun parse(reader: StringReader): CommandSourceProvider {
+    override fun <S> parse(reader: StringReader): CommandSourceProvider {
         when (val username = reader.readUnquotedString()) {
             "server" -> return CommandSourceProvider.Server(serverCommandSource)
             "-c" -> return CommandSourceProvider.ByCursorPosition

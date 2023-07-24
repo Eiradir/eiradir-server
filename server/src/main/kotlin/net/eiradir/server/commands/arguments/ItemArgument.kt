@@ -5,13 +5,12 @@ import com.mojang.brigadier.StringReader
 import com.mojang.brigadier.arguments.ArgumentType
 import com.mojang.brigadier.context.CommandContext
 import com.mojang.brigadier.exceptions.DynamicCommandExceptionType
-import net.eiradir.server.data.Tile
 import net.eiradir.server.commands.CommandSource
 import net.eiradir.server.data.Item
 import net.eiradir.server.registry.Registries
 
 class ItemArgument(private val registries: Registries) : ArgumentType<Item> {
-    override fun parse(reader: StringReader): Item {
+    override fun <S> parse(reader: StringReader): Item {
         val itemName = reader.readUnquotedString()
         return registries.items.getByName(itemName) ?: throw ERROR_UNKNOWN_ITEM.create(itemName)
     }

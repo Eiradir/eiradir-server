@@ -10,7 +10,7 @@ import net.eiradir.server.process.registry.ProcessType
 import net.eiradir.server.registry.Registries
 
 class ProcessArgument(private val registries: Registries) : ArgumentType<ProcessType> {
-    override fun parse(reader: StringReader): ProcessType {
+    override fun <S> parse(reader: StringReader): ProcessType {
         val processName = reader.readUnquotedString()
         return registries.processes.getByName(processName) ?: throw ERROR_UNKNOWN_PROCESS.create(processName)
     }

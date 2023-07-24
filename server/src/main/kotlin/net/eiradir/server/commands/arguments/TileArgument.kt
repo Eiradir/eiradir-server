@@ -6,12 +6,11 @@ import com.mojang.brigadier.arguments.ArgumentType
 import com.mojang.brigadier.context.CommandContext
 import com.mojang.brigadier.exceptions.DynamicCommandExceptionType
 import net.eiradir.server.data.Tile
-import net.eiradir.server.data.TileRegistry
 import net.eiradir.server.commands.CommandSource
 import net.eiradir.server.registry.Registries
 
 class TileArgument(private val registries: Registries) : ArgumentType<Tile> {
-    override fun parse(reader: StringReader): Tile {
+    override fun <S> parse(reader: StringReader): Tile {
         val tileName = reader.readUnquotedString()
         return registries.tiles.getByName(tileName) ?: throw ERROR_UNKNOWN_TILE.create(tileName)
     }
