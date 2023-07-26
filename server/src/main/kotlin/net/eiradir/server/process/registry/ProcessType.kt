@@ -1,6 +1,6 @@
 package net.eiradir.server.process.registry
 
-import net.eiradir.server.process.ProcessDefinition
+import net.eiradir.server.process.data.ProcessDefinition
 import net.eiradir.server.registry.Registries
 import net.eiradir.server.registry.Registry
 import net.eiradir.server.registry.RegistryEntry

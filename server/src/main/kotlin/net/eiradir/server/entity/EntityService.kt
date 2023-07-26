@@ -6,7 +6,7 @@ import com.badlogic.ashley.core.Entity
 import com.badlogic.gdx.graphics.Color
 import com.google.common.eventbus.EventBus
 import ktx.ashley.mapperFor
-import net.eiradir.server.camera.CameraComponent
+import net.eiradir.server.camera.entity.CameraComponent
 import net.eiradir.server.data.IsoType
 import net.eiradir.server.entity.components.*
 import net.eiradir.server.entity.event.EntityPositionChangedEvent
@@ -21,10 +21,10 @@ import net.eiradir.server.registry.Registries
 import net.eiradir.server.map.MapEntityManager
 import net.eiradir.server.math.GridDirection
 import net.eiradir.server.persistence.DatabasePersistenceComponent
-import net.eiradir.server.process.ProcessComponent
+import net.eiradir.server.process.entity.ProcessComponent
 import net.eiradir.server.process.ProcessContext
 import net.eiradir.server.services
-import net.eiradir.server.stats.StatsComponent
+import net.eiradir.server.stats.entity.StatsComponent
 import net.eiradir.server.trait.TraitInstance
 import java.util.UUID
 

@@ -5,8 +5,12 @@ import com.google.common.eventbus.EventBus
 import ktx.ashley.mapperFor
 import net.eiradir.server.registry.Registries
 import net.eiradir.server.stats.StatsService
-import net.eiradir.server.stats.buff.StatBuffInstance
-import net.eiradir.server.stats.buff.StatTagBuffInstance
+import net.eiradir.server.stats.StatBuffInstance
+import net.eiradir.server.stats.StatTagBuffInstance
+import net.eiradir.server.trait.data.Trait
+import net.eiradir.server.trait.entity.TraitsComponent
+import net.eiradir.server.trait.event.TraitAddedEvent
+import net.eiradir.server.trait.event.TraitRemovedEvent
 
 class TraitsService(private val registries: Registries, private val statsService: StatsService, private val eventBus: EventBus) {
     private val traitsMapper = mapperFor<TraitsComponent>()

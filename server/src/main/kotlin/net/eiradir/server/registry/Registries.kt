@@ -7,7 +7,7 @@ import net.eiradir.server.data.*
 import net.eiradir.server.hud.property.HudTypeRegistry
 import net.eiradir.server.interact.InteractionRegistry
 import net.eiradir.server.process.registry.ProcessRegistry
-import net.eiradir.server.trait.TraitRegistry
+import net.eiradir.server.trait.data.TraitRegistry
 
 class Registries(
     val idResolver: IdResolver,

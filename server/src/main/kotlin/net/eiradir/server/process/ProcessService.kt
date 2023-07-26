@@ -2,7 +2,8 @@ package net.eiradir.server.process
 
 import com.badlogic.ashley.core.Entity
 import ktx.ashley.mapperFor
-import net.eiradir.server.process.registry.ProcessType
+import net.eiradir.server.process.data.ProcessDefinition
+import net.eiradir.server.process.entity.ProcessComponent
 
 class ProcessService {
     private val processMapper = mapperFor<ProcessComponent>()

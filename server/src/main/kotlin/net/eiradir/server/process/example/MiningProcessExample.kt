@@ -2,6 +2,11 @@ package net.eiradir.server.process.example
 
 import com.badlogic.ashley.core.Engine
 import net.eiradir.server.process.*
+import net.eiradir.server.process.data.ProcessDefinition
+import net.eiradir.server.process.data.ProcessDefinitionBuilder
+import net.eiradir.server.process.data.ProcessDefinitionMarker
+import net.eiradir.server.process.entity.ProcessComponent
+import net.eiradir.server.process.entity.ProcessSystem
 import net.eiradir.server.process.task.*
 
 @ProcessDefinitionMarker

@@ -4,7 +4,6 @@ import net.eiradir.server.data.ComponentRegistryEntry
 import net.eiradir.server.item.ItemComponent
 import net.eiradir.server.map.entity.PersistenceComponent
 import net.eiradir.server.plugin.EiradirPlugin
-import net.eiradir.server.plugin.EiradirPlugin
 import net.eiradir.server.registry.Registries
 
 class BuiltinComponents : EiradirPlugin {

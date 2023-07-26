@@ -34,7 +34,7 @@ import net.eiradir.server.lifecycle.ServerStartedEvent
 import net.eiradir.server.map.generator.ImageToWorldConverter
 import net.eiradir.server.nature.NatureGenerator
 import net.eiradir.server.plugin.EiradirPlugin
-import net.eiradir.server.session.ClientJoinedEvent
+import net.eiradir.server.session.event.ClientJoinedEvent
 import org.koin.core.component.inject
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind

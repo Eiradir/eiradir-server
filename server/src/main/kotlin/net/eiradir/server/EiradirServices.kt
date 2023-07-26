@@ -6,7 +6,7 @@ import ktx.ashley.mapperFor
 import net.eiradir.server.audionce.AudionceService
 import net.eiradir.server.camera.CameraService
 import net.eiradir.server.chat.ChatService
-import net.eiradir.server.controls.PlayerControllerService
+import net.eiradir.server.playercontroller.PlayerControllerService
 import net.eiradir.server.entity.EntityService
 import net.eiradir.server.interact.InteractionService
 import net.eiradir.server.item.InventoryService

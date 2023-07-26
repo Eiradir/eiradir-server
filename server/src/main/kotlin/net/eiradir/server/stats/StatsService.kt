@@ -5,7 +5,10 @@ import com.google.common.eventbus.EventBus
 import ktx.ashley.mapperFor
 import net.eiradir.server.data.StatType
 import net.eiradir.server.registry.Registries
-import net.eiradir.server.stats.buff.*
+import net.eiradir.server.stats.entity.BuffedComponent
+import net.eiradir.server.stats.entity.StatsComponent
+import net.eiradir.server.stats.event.BuffAppliedEvent
+import net.eiradir.server.stats.event.BuffRemovedEvent
 
 class StatsService(private val registries: Registries, private val eventBus: EventBus) {
     private val statsMapper = mapperFor<StatsComponent>()

@@ -6,7 +6,7 @@ import ktx.ashley.mapperFor
 import net.eiradir.server.plugin.EventBusSubscriber
 import net.eiradir.server.session.network.ConnectionStatusPacket
 import net.eiradir.server.plugin.EiradirPlugin
-import net.eiradir.server.session.ClientAuthorizedEvent
+import net.eiradir.server.session.event.ClientAuthorizedEvent
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module

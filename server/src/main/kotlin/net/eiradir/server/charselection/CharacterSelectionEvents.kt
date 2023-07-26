@@ -2,23 +2,19 @@ package net.eiradir.server.charselection
 
 import com.google.common.eventbus.EventBus
 import com.google.common.eventbus.Subscribe
-import net.eiradir.server.audionce.Audionce
-import net.eiradir.server.audionce.AudionceComponent
 import net.eiradir.server.network.DisconnectReason
 import net.eiradir.server.plugin.EventBusSubscriber
 import net.eiradir.server.session.network.DisconnectPacket
-import net.eiradir.server.camera.CameraComponent
 import net.eiradir.server.camera.CameraService
-import net.eiradir.server.controls.PlayerControllerService
+import net.eiradir.server.playercontroller.PlayerControllerService
 import net.eiradir.server.entity.EntityService
 import net.eiradir.server.hud.*
-import net.eiradir.server.hud.entity.HudComponent
-import net.eiradir.server.network.ClientDisconnectedEvent
+import net.eiradir.server.network.event.ClientDisconnectedEvent
 import net.eiradir.server.network.NetworkServerClient
 import net.eiradir.server.persistence.CharacterStorage
-import net.eiradir.server.player.login.HeadlessJoinedEvent
-import net.eiradir.server.player.login.PlayerJoinedEvent
-import net.eiradir.server.session.ClientJoinedEvent
+import net.eiradir.server.player.event.HeadlessJoinedEvent
+import net.eiradir.server.player.event.PlayerJoinedEvent
+import net.eiradir.server.session.event.ClientJoinedEvent
 
 class CharacterSelectionEvents(
     private val entityService: EntityService,

@@ -2,7 +2,7 @@ package net.eiradir.server.process.task
 
 import net.eiradir.server.process.Interruption
 import net.eiradir.server.process.ProcessContext
-import net.eiradir.server.process.ProcessDefinitionBuilder
+import net.eiradir.server.process.data.ProcessDefinitionBuilder
 import net.eiradir.server.process.Task
 import java.util.*
 

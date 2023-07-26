@@ -1,6 +1,7 @@
 package net.eiradir.server.audionce
 
 import com.badlogic.ashley.core.EntitySystem
+import net.eiradir.server.audionce.entity.AudionceSystem
 import net.eiradir.server.plugin.EiradirPlugin
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind

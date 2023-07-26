@@ -15,6 +15,8 @@ import net.eiradir.server.entity.network.*
 import net.eiradir.server.map.event.MapLoadedEvent
 import net.eiradir.server.map.event.MapUnloadedEvent
 import net.eiradir.server.camera.*
+import net.eiradir.server.camera.event.UnwatchChunkEvent
+import net.eiradir.server.camera.event.WatchChunkEvent
 import net.eiradir.server.map.MapManager
 import net.eiradir.server.network.ServerNetworkContext
 import net.eiradir.server.plugin.EiradirPlugin

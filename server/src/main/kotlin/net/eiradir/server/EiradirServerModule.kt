@@ -35,7 +35,6 @@ import net.eiradir.server.registry.StaticIdMappingsResolver
 import net.eiradir.server.script.ScriptLoader
 import net.eiradir.server.status.ServerStatusProvider
 import net.eiradir.server.status.ServerStatusProviderImpl
-import net.eiradir.server.trait.TraitRegistry
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.singleOf
