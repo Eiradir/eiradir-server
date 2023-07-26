@@ -17,10 +17,10 @@ import net.eiradir.server.map.event.MapUnloadedEvent
 import net.eiradir.server.camera.*
 import net.eiradir.server.map.MapManager
 import net.eiradir.server.network.ServerNetworkContext
-import net.eiradir.server.plugin.EiradirServerPlugin
+import net.eiradir.server.plugin.EiradirPlugin
 import org.koin.core.component.inject
 
-class MapSyncServerPlugin : EiradirServerPlugin {
+class MapSyncServerPlugin : EiradirPlugin {
 
     private val mapManager by inject<MapManager>()
     private val entityLocationCache by inject<EntityLocationCache>()

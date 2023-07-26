@@ -8,11 +8,11 @@ import io.ktor.server.auth.*
 import io.ktor.server.auth.jwt.*
 import net.eiradir.server.config.ConfigProvider
 import net.eiradir.server.lifecycle.KtorSetupEvent
-import net.eiradir.server.plugin.EiradirServerPlugin
+import net.eiradir.server.plugin.EiradirPlugin
 import org.koin.core.component.inject
 import java.util.concurrent.TimeUnit
 
-class AuthenticationServerPlugin : EiradirServerPlugin {
+class AuthenticationServerPlugin : EiradirPlugin {
     private val configProvider by inject<ConfigProvider>()
     private val config = configProvider.getLoader("server").loadConfigOrThrow<ServerAuthConfigHolder>().auth
 

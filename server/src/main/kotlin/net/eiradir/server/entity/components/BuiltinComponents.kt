@@ -4,10 +4,10 @@ import net.eiradir.server.data.ComponentRegistryEntry
 import net.eiradir.server.item.ItemComponent
 import net.eiradir.server.map.entity.PersistenceComponent
 import net.eiradir.server.plugin.EiradirPlugin
-import net.eiradir.server.plugin.EiradirServerPlugin
+import net.eiradir.server.plugin.EiradirPlugin
 import net.eiradir.server.registry.Registries
 
-class BuiltinComponents : EiradirServerPlugin {
+class BuiltinComponents : EiradirPlugin {
     override fun load(registries: Registries) {
         registries.components.register(ComponentRegistryEntry("GridTransform", GridTransform::class))
         registries.components.register(ComponentRegistryEntry("Item", ItemComponent::class))

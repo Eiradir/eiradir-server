@@ -27,7 +27,7 @@ import net.eiradir.server.http.HttpServerImpl
 import net.eiradir.server.nature.NatureGenerator
 import net.eiradir.server.network.NetworkServer
 import net.eiradir.server.network.NetworkServerImpl
-import net.eiradir.server.plugin.EiradirServerPlugin
+import net.eiradir.server.plugin.EiradirPlugin
 import net.eiradir.server.registry.IdResolver
 import net.eiradir.server.registry.Registries
 import net.eiradir.server.registry.RegistryBuilders
@@ -83,7 +83,7 @@ fun createServerModule(args: Array<String>): Module = module {
 }
 
 private fun createPluginLoader(): PluginLoader {
-    return SpiPluginLoader(EiradirServerPlugin::class.java)
+    return SpiPluginLoader(EiradirPlugin::class.java)
 }
 
 fun createIdResolver(): IdResolver {

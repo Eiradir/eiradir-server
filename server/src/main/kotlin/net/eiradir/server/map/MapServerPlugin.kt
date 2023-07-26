@@ -33,7 +33,7 @@ import net.eiradir.server.lifecycle.ServerSaveEvent
 import net.eiradir.server.lifecycle.ServerStartedEvent
 import net.eiradir.server.map.generator.ImageToWorldConverter
 import net.eiradir.server.nature.NatureGenerator
-import net.eiradir.server.plugin.EiradirServerPlugin
+import net.eiradir.server.plugin.EiradirPlugin
 import net.eiradir.server.session.ClientJoinedEvent
 import org.koin.core.component.inject
 import org.koin.core.module.dsl.singleOf
@@ -42,7 +42,7 @@ import org.koin.dsl.binds
 import org.koin.dsl.module
 import java.io.File
 
-class MapServerPlugin : EiradirServerPlugin {
+class MapServerPlugin : EiradirPlugin {
 
     private val config by inject<ServerConfig>()
     private val eventBus by inject<EventBus>()

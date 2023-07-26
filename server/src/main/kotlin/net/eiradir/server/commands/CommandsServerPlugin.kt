@@ -10,12 +10,12 @@ import net.eiradir.server.commands.literal
 import net.eiradir.server.registry.Registries
 import net.eiradir.server.lifecycle.ServerStartedEvent
 import net.eiradir.server.network.NetworkServer
-import net.eiradir.server.plugin.EiradirServerPlugin
+import net.eiradir.server.plugin.EiradirPlugin
 import org.koin.core.KoinApplication
 import org.koin.core.component.inject
 import org.koin.dsl.module
 
-class CommandsServerPlugin : EiradirServerPlugin {
+class CommandsServerPlugin : EiradirPlugin {
 
     private val dispatcher by inject<CommandDispatcher<CommandSource>>()
     private val networkServer by inject<NetworkServer>()

@@ -3,12 +3,12 @@ package net.eiradir.server.camera
 import com.badlogic.ashley.core.EntitySystem
 import net.eiradir.server.plugin.EventBusSubscriber
 import net.eiradir.server.plugin.Initializer
-import net.eiradir.server.plugin.EiradirServerPlugin
+import net.eiradir.server.plugin.EiradirPlugin
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
-class CameraServerPlugin : EiradirServerPlugin {
+class CameraServerPlugin : EiradirPlugin {
 
     override fun provide() = module {
         singleOf(::CameraSystem) bind EntitySystem::class
