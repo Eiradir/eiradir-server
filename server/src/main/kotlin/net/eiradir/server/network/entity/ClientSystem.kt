@@ -1,9 +1,11 @@
-package net.eiradir.server.network
+package net.eiradir.server.network.entity
 
 import com.badlogic.ashley.core.Entity
 import com.badlogic.ashley.systems.IteratingSystem
 import ktx.ashley.allOf
 import ktx.ashley.mapperFor
+import net.eiradir.server.network.ConnectionInitializer
+import net.eiradir.server.network.ConnectionStatus
 import net.eiradir.server.session.network.ConnectionStatusPacket
 
 class ClientSystem : IteratingSystem(allOf(ClientComponent::class).get()) {

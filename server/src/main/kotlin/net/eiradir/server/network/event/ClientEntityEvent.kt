@@ -2,7 +2,7 @@ package net.eiradir.server.network.event
 
 import com.badlogic.ashley.core.Entity
 import ktx.ashley.mapperFor
-import net.eiradir.server.network.ClientComponent
+import net.eiradir.server.network.entity.ClientComponent
 import net.eiradir.server.network.ServerNetworkContext
 
 abstract class ClientEntityEvent(val entity: Entity) {

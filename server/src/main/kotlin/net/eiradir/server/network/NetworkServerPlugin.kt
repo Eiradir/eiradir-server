@@ -3,6 +3,8 @@ package net.eiradir.server.network
 import com.badlogic.ashley.core.EntitySystem
 import com.google.common.eventbus.Subscribe
 import ktx.ashley.mapperFor
+import net.eiradir.server.network.entity.ClientComponent
+import net.eiradir.server.network.entity.ClientSystem
 import net.eiradir.server.plugin.EventBusSubscriber
 import net.eiradir.server.session.network.ConnectionStatusPacket
 import net.eiradir.server.plugin.EiradirPlugin

@@ -8,7 +8,7 @@ import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
-class EntityServerPlugin : EiradirPlugin {
+class EntityPlugin : EiradirPlugin {
     override fun provide(): Module = module {
         singleOf(::EntityCommands) bind Initializer::class
         singleOf(::TransformSystem) bind EntitySystem::class

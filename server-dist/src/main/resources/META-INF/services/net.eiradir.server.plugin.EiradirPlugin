@@ -5,12 +5,12 @@ net.eiradir.server.commands.ServerCommandsPlugin
 net.eiradir.server.console.ConsolePlugin
 net.eiradir.server.discord.DiscordPlugin
 net.eiradir.server.sentry.SentryPlugin
-net.eiradir.server.map.MapServerPlugin
+net.eiradir.server.map.MapPlugin
 net.eiradir.server.map.sync.MapSyncServerPlugin
 net.eiradir.server.session.SessionPlugin
-net.eiradir.server.debug.DebugServerPlugin
+net.eiradir.server.debug.DebugPlugin
 net.eiradir.server.camera.CameraPlugin
-net.eiradir.server.entity.EntityServerPlugin
+net.eiradir.server.entity.EntityPlugin
 net.eiradir.server.playercontroller.PlayerControllerPlugin
 net.eiradir.server.network.NetworkServerPlugin
 net.eiradir.server.persistence.DatabasePersistencePlugin

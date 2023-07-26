@@ -6,7 +6,7 @@ import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
-class DebugServerPlugin : EiradirPlugin {
+class DebugPlugin : EiradirPlugin {
     override fun provide() = module {
         singleOf(::DebugCommands) bind Initializer::class
     }

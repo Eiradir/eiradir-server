@@ -6,7 +6,7 @@ import ktx.ashley.mapperFor
 import net.eiradir.server.entity.ControlledEntity
 import net.eiradir.server.entity.EntityService
 import net.eiradir.server.entity.NULL_UUID
-import net.eiradir.server.network.ClientComponent
+import net.eiradir.server.network.entity.ClientComponent
 
 class PlayerControllerService(private val entityService: EntityService, private val eventBus: EventBus) {
     private val clientMapper = mapperFor<ClientComponent>()

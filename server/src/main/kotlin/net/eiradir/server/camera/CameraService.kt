@@ -15,7 +15,7 @@ import net.eiradir.server.map.ChunkDimensions
 import net.eiradir.server.map.EiradirMap
 import net.eiradir.server.math.Vector3Int
 import net.eiradir.server.network.packets.Packet
-import net.eiradir.server.network.ClientComponent
+import net.eiradir.server.network.entity.ClientComponent
 
 class CameraService(private val eventBus: EventBus) {
     private val idMapper = mapperFor<IdComponent>()
