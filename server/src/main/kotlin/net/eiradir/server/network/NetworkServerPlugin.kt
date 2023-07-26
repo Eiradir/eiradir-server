@@ -3,15 +3,17 @@ package net.eiradir.server.network
 import com.badlogic.ashley.core.EntitySystem
 import com.google.common.eventbus.Subscribe
 import ktx.ashley.mapperFor
+import net.eiradir.server.network.entity.ClientComponent
+import net.eiradir.server.network.entity.ClientSystem
 import net.eiradir.server.plugin.EventBusSubscriber
 import net.eiradir.server.session.network.ConnectionStatusPacket
-import net.eiradir.server.plugin.EiradirServerPlugin
-import net.eiradir.server.session.ClientAuthorizedEvent
+import net.eiradir.server.plugin.EiradirPlugin
+import net.eiradir.server.session.event.ClientAuthorizedEvent
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
-class NetworkServerPlugin : EiradirServerPlugin, EventBusSubscriber {
+class NetworkServerPlugin : EiradirPlugin, EventBusSubscriber {
 
     private val clientMapper = mapperFor<ClientComponent>()
 

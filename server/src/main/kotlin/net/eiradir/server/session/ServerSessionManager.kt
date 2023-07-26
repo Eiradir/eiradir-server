@@ -1,11 +1,10 @@
 package net.eiradir.server.session
 
 import arrow.core.Either
-import net.eiradir.server.auth.Authentication
-import net.eiradir.server.auth.Credentials
-import net.eiradir.server.session.Session
+import net.eiradir.server.auth.EiradirAuthentication
+import net.eiradir.server.auth.EiradirCredentials
 
 interface ServerSessionManager {
-    suspend fun createSession(authentication: Authentication): Session
-    suspend fun verifySession(credentials: Credentials): Either<ServerSessionError, Session>
+    suspend fun createSession(authentication: EiradirAuthentication): Session
+    suspend fun verifySession(credentials: EiradirCredentials): Either<ServerSessionError, Session>
 }

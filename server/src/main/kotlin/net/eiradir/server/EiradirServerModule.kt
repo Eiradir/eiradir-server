@@ -27,7 +27,7 @@ import net.eiradir.server.http.HttpServerImpl
 import net.eiradir.server.nature.NatureGenerator
 import net.eiradir.server.network.NetworkServer
 import net.eiradir.server.network.NetworkServerImpl
-import net.eiradir.server.plugin.EiradirServerPlugin
+import net.eiradir.server.plugin.EiradirPlugin
 import net.eiradir.server.registry.IdResolver
 import net.eiradir.server.registry.Registries
 import net.eiradir.server.registry.RegistryBuilders
@@ -35,7 +35,6 @@ import net.eiradir.server.registry.StaticIdMappingsResolver
 import net.eiradir.server.script.ScriptLoader
 import net.eiradir.server.status.ServerStatusProvider
 import net.eiradir.server.status.ServerStatusProviderImpl
-import net.eiradir.server.trait.TraitRegistry
 import org.koin.core.module.Module
 import org.koin.core.module.dsl.bind
 import org.koin.core.module.dsl.singleOf
@@ -83,7 +82,7 @@ fun createServerModule(args: Array<String>): Module = module {
 }
 
 private fun createPluginLoader(): PluginLoader {
-    return SpiPluginLoader(EiradirServerPlugin::class.java)
+    return SpiPluginLoader(EiradirPlugin::class.java)
 }
 
 fun createIdResolver(): IdResolver {

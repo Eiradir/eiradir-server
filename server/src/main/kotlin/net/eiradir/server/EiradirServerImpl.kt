@@ -20,6 +20,8 @@ import net.eiradir.server.network.NetworkServer
 import org.koin.core.KoinApplication
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
+import org.koin.dsl.bind
+import org.koin.dsl.module
 import java.util.concurrent.ConcurrentLinkedQueue
 import java.util.concurrent.ScheduledExecutorService
 import kotlin.math.max
@@ -46,6 +48,9 @@ class EiradirServerImpl(private val koin: KoinApplication) : EiradirServer, Koin
             koin.modules(it.provide())
             eventBus.register(it)
         }
+        koin.modules(module {
+            single { this@EiradirServerImpl } bind EiradirServer::class
+        })
         koin.createEagerInstances()
         getKoin().getAll<Initializer>()
         getKoin().getAll<EventBusSubscriber>().forEach {

@@ -12,8 +12,8 @@ import io.ktor.server.response.*
 import io.ktor.server.routing.*
 import net.eiradir.server.status.ServerStatusResponse
 import net.eiradir.server.config.ServerConfig
-import net.eiradir.server.lifecycle.KtorSetupEvent
 import net.eiradir.server.status.ServerStatusProvider
+import org.koin.mp.KoinPlatform.getKoin
 
 class HttpServerImpl(
     private val serverStatusProvider: ServerStatusProvider,
@@ -57,7 +57,11 @@ class HttpServerImpl(
                 }
             }
 
-            eventBus.post(KtorSetupEvent(this))
+            getKoin().getAll<KtorInitializer>().onEach {
+                it.configureWith(this)
+            }.forEach {
+                it.configureRoutesWith(this)
+            }
         }.start()
     }
 

@@ -7,7 +7,7 @@ import com.mojang.brigadier.context.CommandContext
 import com.mojang.brigadier.exceptions.DynamicCommandExceptionType
 import net.eiradir.server.commands.CommandSource
 import net.eiradir.server.registry.Registries
-import net.eiradir.server.trait.Trait
+import net.eiradir.server.trait.data.Trait
 
 class TraitArgument(private val registries: Registries) : ArgumentType<Trait> {
     override fun <S> parse(reader: StringReader): Trait {

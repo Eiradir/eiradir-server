@@ -2,8 +2,6 @@ package net.eiradir.server.status
 
 import net.eiradir.server.config.ServerConfig
 import net.eiradir.server.network.NetworkServer
-import org.koin.core.component.KoinComponent
-import org.koin.core.component.inject
 
 internal class ServerStatusProviderImpl(
     private val networkServer: NetworkServer,

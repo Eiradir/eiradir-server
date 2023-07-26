@@ -1,10 +1,10 @@
 package net.eiradir.server.process.task
 
 import net.eiradir.server.process.ProcessContext
-import net.eiradir.server.process.ProcessDefinitionBuilder
+import net.eiradir.server.process.data.ProcessDefinitionBuilder
 import net.eiradir.server.process.Task
 import net.eiradir.server.services
-import net.eiradir.server.trait.Trait
+import net.eiradir.server.trait.data.Trait
 import net.eiradir.server.trait.TraitInstance
 import java.util.*
 

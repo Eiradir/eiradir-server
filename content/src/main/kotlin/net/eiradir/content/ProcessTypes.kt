@@ -6,7 +6,7 @@ import net.eiradir.server.process.task.inform
 import net.eiradir.server.process.task.repeat
 import net.eiradir.server.process.task.timed
 import net.eiradir.server.registry.RegistryBuilders
-import net.eiradir.server.stats.buff.ConstantBonus
+import net.eiradir.server.stats.ConstantBonus
 
 class ProcessTypes(define: RegistryBuilders, statTypes: StatTypes) : Initializer {
     init {

@@ -4,18 +4,18 @@ import com.badlogic.ashley.core.Entity
 import com.google.common.eventbus.Subscribe
 import ktx.ashley.mapperFor
 import net.eiradir.server.audionce.Audionce
-import net.eiradir.server.audionce.AudionceComponent
-import net.eiradir.server.camera.CameraComponent
-import net.eiradir.server.controls.PlayerControlGainedEvent
-import net.eiradir.server.controls.PlayerControlReleasedEvent
+import net.eiradir.server.audionce.entity.AudionceComponent
+import net.eiradir.server.camera.entity.CameraComponent
+import net.eiradir.server.playercontroller.PlayerControlGainedEvent
+import net.eiradir.server.playercontroller.PlayerControlReleasedEvent
 import net.eiradir.server.entity.components.IdComponent
 import net.eiradir.server.entity.components.NameComponent
 import net.eiradir.server.hud.ChatHud
 import net.eiradir.server.hud.EquipmentHud
 import net.eiradir.server.hud.HudService
 import net.eiradir.server.hud.entity.HudComponent
-import net.eiradir.server.player.login.HeadlessJoinedEvent
-import net.eiradir.server.player.login.PlayerJoinedEvent
+import net.eiradir.server.player.event.HeadlessJoinedEvent
+import net.eiradir.server.player.event.PlayerJoinedEvent
 import net.eiradir.server.plugin.EventBusSubscriber
 import net.eiradir.server.services
 

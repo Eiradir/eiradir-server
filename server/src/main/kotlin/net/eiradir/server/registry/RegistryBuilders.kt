@@ -9,12 +9,12 @@ import net.eiradir.server.data.StatType
 import net.eiradir.server.data.Tile
 import net.eiradir.server.data.builder.*
 import net.eiradir.server.interact.*
-import net.eiradir.server.process.ProcessDefinition
-import net.eiradir.server.process.ProcessDefinitionBuilder
-import net.eiradir.server.process.ProcessDefinitionMarker
+import net.eiradir.server.process.data.ProcessDefinition
+import net.eiradir.server.process.data.ProcessDefinitionBuilder
+import net.eiradir.server.process.data.ProcessDefinitionMarker
 import net.eiradir.server.process.registry.ProcessType
-import net.eiradir.server.trait.Trait
-import net.eiradir.server.trait.TraitBuilder
+import net.eiradir.server.trait.data.Trait
+import net.eiradir.server.trait.data.TraitBuilder
 
 class RegistryBuilders(private val registries: Registries, private val interactableRegistry: InteractableRegistry) {
     fun tile(

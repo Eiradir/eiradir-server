@@ -1,6 +1,7 @@
 package net.eiradir.server.process
 
 import com.badlogic.ashley.core.Entity
+import net.eiradir.server.process.data.ProcessDefinition
 import net.eiradir.server.process.task.InitializeTask
 
 class ProcessContext(val entity: Entity, val process: ProcessDefinition, val fromCheckpoint: String? = null, private val _contextData: Map<String, Any> = mutableMapOf()) {

@@ -1,7 +1,7 @@
 package net.eiradir.server.hud.network
 
 import ktx.ashley.mapperFor
-import net.eiradir.server.controls.PlayerControllerService
+import net.eiradir.server.playercontroller.PlayerControllerService
 import net.eiradir.server.entity.AdvancedEncoders
 import net.eiradir.server.hud.entity.HudComponent
 import net.eiradir.server.interact.InteractionContext

@@ -2,8 +2,8 @@ package net.eiradir.content
 
 import net.eiradir.server.plugin.Initializer
 import net.eiradir.server.registry.RegistryBuilders
-import net.eiradir.server.stats.buff.ConstantBonus
-import net.eiradir.server.trait.Trait
+import net.eiradir.server.stats.ConstantBonus
+import net.eiradir.server.trait.data.Trait
 
 class Traits(define: RegistryBuilders) : Initializer {
 

@@ -1,10 +1,9 @@
 package net.eiradir.server.session
 
 import arrow.core.Either
-import net.eiradir.server.auth.Authentication
-import net.eiradir.server.auth.Credentials
-import net.eiradir.server.session.Session
-import net.eiradir.server.session.LoginTokenSession
+import net.eiradir.server.auth.EiradirAuthentication
+import net.eiradir.server.auth.EiradirCredentials
+import net.eiradir.server.auth.JwtAccountAuthentication
 import java.time.Duration
 import java.time.Instant
 import java.util.*
@@ -18,7 +17,7 @@ class ServerSessionManagerImpl : ServerSessionManager {
         tokens.values.removeIf { Instant.now().isAfter(it.validUntil) }
     }
 
-    override suspend fun createSession(authentication: Authentication): Session {
+    override suspend fun createSession(authentication: EiradirAuthentication): Session {
         authentication as? JwtAccountAuthentication ?: throw IllegalArgumentException("Authentication must be of type JwtAccountAuthentication")
 
         removeExpired()
@@ -28,7 +27,7 @@ class ServerSessionManagerImpl : ServerSessionManager {
         return LoginTokenSession(authentication.username, tokenData.token)
     }
 
-    override suspend fun verifySession(credentials: Credentials): Either<ServerSessionError, Session> {
+    override suspend fun verifySession(credentials: EiradirCredentials): Either<ServerSessionError, Session> {
         credentials as? LoginTokenCredentials ?: throw IllegalArgumentException("Credentials must be of type LoginTokenCredentials")
 
         removeExpired()

@@ -12,11 +12,11 @@ import net.eiradir.server.persistence.CharacterStorage
 import net.eiradir.server.persistence.DatabasePersistenceComponent
 import net.eiradir.server.player.GameCharacter
 import net.eiradir.server.player.TraitInstanceData
-import net.eiradir.server.process.ProcessComponent
+import net.eiradir.server.process.entity.ProcessComponent
 import net.eiradir.server.process.persistence.ProcessInstanceData
 import net.eiradir.server.registry.Registries
-import net.eiradir.server.stats.StatsComponent
-import net.eiradir.server.trait.TraitsComponent
+import net.eiradir.server.stats.entity.StatsComponent
+import net.eiradir.server.trait.entity.TraitsComponent
 import java.io.File
 
 class JsonCharacterStorage(private val registries: Registries) : CharacterStorage {

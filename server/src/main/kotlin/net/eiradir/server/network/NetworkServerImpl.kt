@@ -12,6 +12,8 @@ import io.netty.handler.codec.LengthFieldPrepender
 import io.netty.handler.timeout.ReadTimeoutHandler
 import net.eiradir.server.entity.AdvancedEncoders
 import net.eiradir.server.extensions.logger
+import net.eiradir.server.network.event.ClientConnectedEvent
+import net.eiradir.server.network.event.ClientDisconnectedEvent
 import net.eiradir.server.network.event.NetworkRegisterHandlersEvent
 import net.eiradir.server.network.event.NetworkRegisterPacketsEvent
 import net.eiradir.server.network.packets.PacketDecoder

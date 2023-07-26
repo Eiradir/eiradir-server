@@ -1,6 +1,8 @@
 package net.eiradir.server.process.task
 
 import net.eiradir.server.process.*
+import net.eiradir.server.process.data.ProcessDefinition
+import net.eiradir.server.process.data.ProcessDefinitionBuilder
 import java.util.*
 
 class InitializeTask(subProcessBuilder: ProcessDefinitionBuilder.() -> Unit) : Task {

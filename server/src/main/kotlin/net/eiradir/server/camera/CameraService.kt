@@ -4,14 +4,18 @@ import com.badlogic.ashley.core.Entity
 import com.google.common.collect.ArrayListMultimap
 import com.google.common.eventbus.EventBus
 import ktx.ashley.mapperFor
-import net.eiradir.server.entity.components.GridTransform
+import net.eiradir.server.camera.entity.CameraComponent
+import net.eiradir.server.camera.event.UnwatchChunkEvent
+import net.eiradir.server.camera.event.WatchChunkEvent
+import net.eiradir.server.camera.network.CameraFollowEntityPacket
+import net.eiradir.server.camera.network.CameraSetPositionPacket
 import net.eiradir.server.entity.components.IdComponent
 import net.eiradir.server.entity.components.MapViewComponent
 import net.eiradir.server.map.ChunkDimensions
 import net.eiradir.server.map.EiradirMap
 import net.eiradir.server.math.Vector3Int
 import net.eiradir.server.network.packets.Packet
-import net.eiradir.server.network.ClientComponent
+import net.eiradir.server.network.entity.ClientComponent
 
 class CameraService(private val eventBus: EventBus) {
     private val idMapper = mapperFor<IdComponent>()

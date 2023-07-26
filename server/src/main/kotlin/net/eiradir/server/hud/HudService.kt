@@ -13,7 +13,7 @@ import net.eiradir.server.inventory.Inventory
 import net.eiradir.server.io.SupportedByteBuf
 import net.eiradir.server.io.SupportedOutput
 import net.eiradir.server.item.ItemInstance
-import net.eiradir.server.network.ClientComponent
+import net.eiradir.server.network.entity.ClientComponent
 import net.eiradir.server.registry.Registries
 
 class HudService(private val registries: Registries, private val advancedEncoders: AdvancedEncoders) {

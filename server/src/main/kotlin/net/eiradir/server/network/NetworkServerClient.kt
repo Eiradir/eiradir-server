@@ -9,6 +9,7 @@ import ktx.ashley.entity
 import net.eiradir.server.extensions.add
 import net.eiradir.server.extensions.logger
 import net.eiradir.server.extensions.marker
+import net.eiradir.server.network.entity.ClientComponent
 import net.eiradir.server.network.packets.Packet
 import net.eiradir.server.network.packets.PacketFactory
 import net.eiradir.server.network.packets.PingPacket

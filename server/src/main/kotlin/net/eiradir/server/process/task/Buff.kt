@@ -4,12 +4,11 @@ import ktx.ashley.mapperFor
 import net.eiradir.server.EiradirServices
 import net.eiradir.server.data.StatType
 import net.eiradir.server.process.ProcessContext
-import net.eiradir.server.process.ProcessDefinitionBuilder
+import net.eiradir.server.process.data.ProcessDefinitionBuilder
 import net.eiradir.server.process.Task
-import net.eiradir.server.stats.buff.Buff
-import net.eiradir.server.stats.buff.BuffInstance
-import net.eiradir.server.stats.buff.StatBuffInstance
-import net.eiradir.server.stats.buff.StatTagBuffInstance
+import net.eiradir.server.stats.Buff
+import net.eiradir.server.stats.StatBuffInstance
+import net.eiradir.server.stats.StatTagBuffInstance
 import java.util.*
 
 

@@ -5,7 +5,7 @@ import ktx.ashley.mapperFor
 import net.eiradir.server.hud.Hud
 import net.eiradir.server.hud.message.NoHudMessages
 import net.eiradir.server.services
-import net.eiradir.server.stats.StatsComponent
+import net.eiradir.server.stats.entity.StatsComponent
 
 enum class VitalityHudProperties {
     Health,

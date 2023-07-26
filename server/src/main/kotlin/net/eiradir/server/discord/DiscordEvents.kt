@@ -6,8 +6,8 @@ import net.eiradir.server.chat.ChatMessageType
 import net.eiradir.server.plugin.EventBusSubscriber
 import net.eiradir.server.lifecycle.ServerStartedEvent
 import net.eiradir.server.lifecycle.ServerStoppedEvent
-import net.eiradir.server.player.login.PlayerJoinedEvent
-import net.eiradir.server.player.login.PlayerLeftEvent
+import net.eiradir.server.player.event.PlayerJoinedEvent
+import net.eiradir.server.player.event.PlayerLeftEvent
 import net.eiradir.server.reports.PlayerReportEvent
 
 class DiscordEvents(private val config: DiscordConfig, private val bot: DiscordBot) : EventBusSubscriber {

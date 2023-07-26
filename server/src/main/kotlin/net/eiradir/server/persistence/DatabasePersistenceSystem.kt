@@ -6,15 +6,7 @@ import com.badlogic.ashley.core.EntityListener
 import com.badlogic.ashley.systems.IteratingSystem
 import ktx.ashley.allOf
 import ktx.ashley.mapperFor
-import net.eiradir.server.entity.components.*
-import net.eiradir.server.extensions.toIntRGBA
-import net.eiradir.server.player.GameCharacter
-import net.eiradir.server.player.TraitInstanceData
-import net.eiradir.server.process.ProcessComponent
-import net.eiradir.server.process.persistence.ProcessInstanceData
 import net.eiradir.server.registry.Registries
-import net.eiradir.server.stats.StatsComponent
-import net.eiradir.server.trait.TraitsComponent
 
 class DatabasePersistenceSystem(private val characterStorage: CharacterStorage, private val registries: Registries) : IteratingSystem(family), EntityListener {
 

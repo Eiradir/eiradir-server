@@ -11,7 +11,7 @@ import net.eiradir.server.item.ItemComponent
 import net.eiradir.server.process.registry.ProcessRegistry
 import net.eiradir.server.registry.Registries
 import net.eiradir.server.registry.StaticIdMappingsResolver
-import net.eiradir.server.trait.TraitRegistry
+import net.eiradir.server.trait.data.TraitRegistry
 
 object GeneratorUtils {
     fun defaultRegistries(): Registries {

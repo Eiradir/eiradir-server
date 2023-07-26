@@ -8,7 +8,7 @@ import net.eiradir.server.commands.arguments.Vector3IntArgument
 import net.eiradir.server.commands.literal
 import net.eiradir.server.plugin.Initializer
 import net.eiradir.server.commands.clientEntity
-import net.eiradir.server.controls.PlayerControllerService
+import net.eiradir.server.playercontroller.PlayerControllerService
 
 class CameraCommands(
     dispatcher: CommandDispatcher<CommandSource>,

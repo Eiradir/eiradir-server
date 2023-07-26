@@ -23,7 +23,7 @@ import net.eiradir.server.registry.RegistryBuilders
 import net.eiradir.server.services
 import net.eiradir.server.tooltip.Tooltip
 import net.eiradir.server.tooltip.TooltipBuilder
-import net.eiradir.server.tooltip.TooltipPacket
+import net.eiradir.server.tooltip.network.TooltipPacket
 import net.eiradir.server.tooltip.title
 
 class Interactions(

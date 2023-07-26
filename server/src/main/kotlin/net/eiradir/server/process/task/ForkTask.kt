@@ -1,8 +1,8 @@
 package net.eiradir.server.process.task
 
 import net.eiradir.server.process.ProcessContext
-import net.eiradir.server.process.ProcessDefinition
-import net.eiradir.server.process.ProcessDefinitionBuilder
+import net.eiradir.server.process.data.ProcessDefinition
+import net.eiradir.server.process.data.ProcessDefinitionBuilder
 import net.eiradir.server.process.Task
 import net.eiradir.server.services
 import java.util.*

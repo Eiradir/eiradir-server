@@ -1,7 +1,7 @@
 package net.eiradir.server.audionce
 
 import com.badlogic.ashley.core.Entity
-import net.eiradir.server.camera.CameraComponent
+import net.eiradir.server.camera.entity.CameraComponent
 import net.eiradir.server.chat.ChatMessageType
 import net.eiradir.server.math.Vector3Int
 

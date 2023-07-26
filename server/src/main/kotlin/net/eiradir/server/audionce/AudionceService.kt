@@ -3,6 +3,7 @@ package net.eiradir.server.audionce
 import com.badlogic.ashley.core.Engine
 import ktx.ashley.allOf
 import ktx.ashley.mapperFor
+import net.eiradir.server.audionce.entity.AudionceComponent
 import net.eiradir.server.math.Vector3Int
 
 class AudionceService(val engine: Engine) {
