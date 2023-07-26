@@ -1,7 +1,7 @@
 net.eiradir.server.auth.AuthenticationPlugin
 net.eiradir.server.charcreation.CharacterCreationPlugin
 net.eiradir.server.charselection.CharacterSelectionPlugin
-net.eiradir.server.commands.CommandsServerPlugin
+net.eiradir.server.commands.ServerCommandsPlugin
 net.eiradir.server.console.ConsolePlugin
 net.eiradir.server.discord.DiscordPlugin
 net.eiradir.server.sentry.SentryPlugin
