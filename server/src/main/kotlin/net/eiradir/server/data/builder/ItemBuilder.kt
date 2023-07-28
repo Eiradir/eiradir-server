@@ -6,6 +6,7 @@ import net.eiradir.server.data.ItemRegistry
 import net.eiradir.server.item.EquipmentSlot
 
 class ItemBuilder(val name: String) {
+    var isoName: String = name
     var maxStackSize: Int = 250
     var twoHanded: Boolean = false
     var tooltip: String? = null
@@ -21,6 +22,7 @@ class ItemBuilder(val name: String) {
     fun build(): Item {
         return Item(
             name = name,
+            isoName = isoName,
             maxStackSize = maxStackSize,
             equipmentSlot = equipmentSlot,
             twoHanded = twoHanded,
