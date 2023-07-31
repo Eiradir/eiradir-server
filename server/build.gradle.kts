@@ -34,7 +34,7 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
 
     // Configuration
-    val hopliteVersion = "2.1.5"
+    val hopliteVersion = "2.7.4"
     implementation("com.sksamuel.hoplite:hoplite-core:$hopliteVersion")
     implementation("com.sksamuel.hoplite:hoplite-yaml:$hopliteVersion")
 
