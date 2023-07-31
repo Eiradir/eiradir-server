@@ -17,7 +17,7 @@ dependencies {
     implementation(project(":server"))
     implementation(project(":content"))
 
-    implementation("io.insert-koin:koin-logger-slf4j:3.4.1")
+    implementation("io.insert-koin:koin-logger-slf4j:3.4.3")
 
     val ktorVersion by properties
     implementation("io.ktor:ktor-serialization-jackson:$ktorVersion")
