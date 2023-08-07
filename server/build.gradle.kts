@@ -27,7 +27,7 @@ dependencies {
     api("com.google.guava:guava:31.0.1-jre") // careful updating, guava made dumb choices
 
     // Logging
-    val slf4jVersion = "1.7.36"
+    val slf4jVersion = "2.0.7"
     val logbackVersion by properties
     implementation("org.slf4j:slf4j-api:$slf4jVersion")
     implementation("ch.qos.logback:logback-core:$logbackVersion")
