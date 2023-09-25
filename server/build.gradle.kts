@@ -39,7 +39,7 @@ dependencies {
     implementation("com.sksamuel.hoplite:hoplite-yaml:$hopliteVersion")
 
     // Network
-    api("io.netty:netty-all:4.1.97.Final")
+    api("io.netty:netty-all:4.1.98.Final")
 
     // Ktor
     val ktorVersion by properties
