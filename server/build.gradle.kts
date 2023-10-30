@@ -63,7 +63,7 @@ dependencies {
     api("io.arrow-kt:arrow-core:$arrowVersion")
 
     // Console
-    implementation("org.jline:jline:3.23.0")
+    implementation("org.jline:jline:3.24.0")
     runtimeOnly("org.fusesource.jansi:jansi:2.4.1")
 
     implementation("com.mojang:brigadier:1.0.500")
