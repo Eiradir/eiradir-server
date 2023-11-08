@@ -20,6 +20,7 @@ import net.eiradir.server.player.GameCharacter
 import net.eiradir.server.registry.Registries
 import net.eiradir.server.map.MapEntityManager
 import net.eiradir.server.math.GridDirection
+import net.eiradir.server.mobility.Mobility
 import net.eiradir.server.persistence.DatabasePersistenceComponent
 import net.eiradir.server.process.entity.ProcessComponent
 import net.eiradir.server.process.ProcessContext
@@ -120,6 +121,7 @@ class EntityService(
             this.position = position
             this.direction = direction
         })
+        entity.add(Mobility())
         entity.add(IsoComponent().apply { this.isoId = isoId })
         return Either.Right(entity)
     }
