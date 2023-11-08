@@ -115,9 +115,9 @@ internal class NetworkServerImpl(
         super.channelInactive(ctx)
         val client = ctx.channel().attr(NetworkServerClient.ATTRIBUTE).get()
         _clients.remove(client)
-        client.removeFromEngine(engine)
         log.info("Client disconnected: ${client.address}")
         eventBus.post(ClientDisconnectedEvent(client))
+        client.removeFromEngine(engine)
     }
 
     override fun processTasks() {
