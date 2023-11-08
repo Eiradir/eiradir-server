@@ -1,16 +1,21 @@
 package net.eiradir.server.discord
 
 import com.google.common.eventbus.Subscribe
+import ktx.ashley.mapperFor
 import net.eiradir.server.chat.ChatEvent
 import net.eiradir.server.chat.ChatMessageType
+import net.eiradir.server.entity.components.NameComponent
 import net.eiradir.server.plugin.EventBusSubscriber
 import net.eiradir.server.lifecycle.ServerStartedEvent
 import net.eiradir.server.lifecycle.ServerStoppedEvent
 import net.eiradir.server.player.event.PlayerJoinedEvent
 import net.eiradir.server.player.event.PlayerLeftEvent
 import net.eiradir.server.reports.PlayerReportEvent
+import net.eiradir.server.services
 
 class DiscordEvents(private val config: DiscordConfig, private val bot: DiscordBot) : EventBusSubscriber {
+
+    private val nameMapper = mapperFor<NameComponent>()
 
     @Subscribe
     fun onServerStarted(event: ServerStartedEvent) {
@@ -37,7 +42,7 @@ class DiscordEvents(private val config: DiscordConfig, private val bot: DiscordB
     @Subscribe
     fun onLogout(event: PlayerLeftEvent) {
         if (config.includeSystem) {
-            bot.postMessage(event.player.name, " has logged out", ChatMessageType.Action)
+            bot.postMessage(nameMapper[event.entity]?.name ?: "???", " has logged out", ChatMessageType.Action)
         }
     }
 

@@ -15,7 +15,9 @@ import net.eiradir.server.hud.EquipmentHud
 import net.eiradir.server.hud.HudService
 import net.eiradir.server.hud.entity.HudComponent
 import net.eiradir.server.player.event.HeadlessJoinedEvent
+import net.eiradir.server.player.event.HeadlessLeftEvent
 import net.eiradir.server.player.event.PlayerJoinedEvent
+import net.eiradir.server.player.event.PlayerLeftEvent
 import net.eiradir.server.plugin.EventBusSubscriber
 import net.eiradir.server.services
 
@@ -56,10 +58,20 @@ class ContentEvents(
     }
 
     @Subscribe
+    fun onHeadlessLeft(event: HeadlessLeftEvent) {
+        event.connection.services().playerController.resetControlledEntity(event.connection)
+    }
+
+    @Subscribe
     fun onPlayerJoined(event: PlayerJoinedEvent) {
         commonConnectionSetup(event.connection)
         event.connection.services().camera.setCameraTarget(event.connection, event.entity)
         event.connection.services().playerController.setControlledEntity(event.connection, event.entity)
+    }
+
+    @Subscribe
+    fun onPlayerLeft(event: PlayerLeftEvent) {
+        event.connection.services().playerController.resetControlledEntity(event.connection)
     }
 
     @Subscribe
@@ -72,7 +84,13 @@ class ContentEvents(
     @Subscribe
     fun onControlReleased(event: PlayerControlReleasedEvent) {
         hudService.removeIf<VitalityHud>(event.connection, hudTypes.vitality) {
-            it.target == event.entity
+            it.entity == event.entity
+        }
+        hudService.removeIf<EquipmentHud>(event.connection, hudTypes.equipment) {
+            it.entity == event.entity
+        }
+        hudService.removeIf<SpellsHud>(event.connection, hudTypes.spells) {
+            it.entity == event.entity
         }
     }
 
