@@ -26,3 +26,4 @@ net.eiradir.server.tooltip.TooltipPlugin
 net.eiradir.server.menu.MenuPlugin
 net.eiradir.server.audionce.AudioncePlugin
 net.eiradir.server.chat.ChatPlugin
+net.eiradir.server.mobility.MobilityPlugin

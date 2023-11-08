@@ -43,6 +43,15 @@ class CameraService(private val eventBus: EventBus) {
         eventBus.post(UnwatchChunkEvent(connection, chunkPos))
     }
 
+    fun unwatchAll(connection: Entity, camera: CameraComponent? = cameraMapper[connection]) {
+        camera?.watchedChunks?.clear()
+        val chunks = watchesByEntity.removeAll(connection)
+        chunks.forEach {
+            watchesByChunk.remove(it, connection)
+            eventBus.post(UnwatchChunkEvent(connection, it))
+        }
+    }
+
     fun setCameraPosition(connection: Entity, position: Vector3Int, camera: CameraComponent? = cameraMapper[connection]) {
         if (camera == null) return
         setCameraPositionWithoutUpdate(connection, position)
