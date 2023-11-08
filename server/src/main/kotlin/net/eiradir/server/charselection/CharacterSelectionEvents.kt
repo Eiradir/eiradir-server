@@ -13,7 +13,9 @@ import net.eiradir.server.network.event.ClientDisconnectedEvent
 import net.eiradir.server.network.NetworkServerClient
 import net.eiradir.server.persistence.CharacterStorage
 import net.eiradir.server.player.event.HeadlessJoinedEvent
+import net.eiradir.server.player.event.HeadlessLeftEvent
 import net.eiradir.server.player.event.PlayerJoinedEvent
+import net.eiradir.server.player.event.PlayerLeftEvent
 import net.eiradir.server.session.event.ClientJoinedEvent
 
 class CharacterSelectionEvents(
@@ -53,9 +55,13 @@ class CharacterSelectionEvents(
 
     @Subscribe
     fun onClientDisconnected(event: ClientDisconnectedEvent) {
+        val connection = event.client.connectionEntity ?: return
         val entity = event.client.loadedEntity
         if (entity != null) {
+            eventBus.post(PlayerLeftEvent(connection, entity))
             entityService.removeEntity(entity)
+        } else {
+            eventBus.post(HeadlessLeftEvent(connection))
         }
     }
 

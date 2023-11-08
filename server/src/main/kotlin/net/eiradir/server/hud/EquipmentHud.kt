@@ -9,10 +9,10 @@ enum class EquipmentHudProperties {
     Inventory
 }
 
-class EquipmentHud(private val target: Entity) : Hud<EquipmentHudProperties, NoHudMessages>() {
+class EquipmentHud(val entity: Entity) : Hud<EquipmentHudProperties, NoHudMessages>() {
     override val propertyKeys = EquipmentHudProperties.values()
     override val messageKeys = NoHudMessages.values()
     override val typeName: String get() = "equipment"
     private val inventoryMapper = mapperFor<InventoryComponent>()
-    private val inventory = createInventoryProperty(EquipmentHudProperties.Inventory).from { inventoryMapper[target]?.defaultInventory }
+    private val inventory = createInventoryProperty(EquipmentHudProperties.Inventory).from { inventoryMapper[entity]?.defaultInventory }
 }
