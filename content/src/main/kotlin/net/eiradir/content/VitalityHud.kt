@@ -16,30 +16,30 @@ enum class VitalityHudProperties {
     MaxHunger
 }
 
-class VitalityHud(val target: Entity, private val statTypes: StatTypes) : Hud<VitalityHudProperties, NoHudMessages>() {
+class VitalityHud(val entity: Entity, private val statTypes: StatTypes) : Hud<VitalityHudProperties, NoHudMessages>() {
     override val propertyKeys = VitalityHudProperties.values()
     override val messageKeys = NoHudMessages.values()
     override val typeName: String get() = "vitality"
-    private val statsService = target.services().stats
+    private val statsService = entity.services().stats
     private val statsMapper = mapperFor<StatsComponent>()
 
     private var _statsComponent: StatsComponent? = null
     private val statsComponent: StatsComponent?
         get() {
             if (_statsComponent == null) {
-                _statsComponent = statsMapper[target]
+                _statsComponent = statsMapper[entity]
             }
             return _statsComponent
         }
 
-    private val health = createIntProperty(VitalityHudProperties.Health).from { statsService.getEffectiveStat(target, statTypes.health, statsComponent) }
+    private val health = createIntProperty(VitalityHudProperties.Health).from { statsService.getEffectiveStat(entity, statTypes.health, statsComponent) }
     private val maxHealth =
-        createIntProperty(VitalityHudProperties.MaxHealth).from { statsService.getEffectiveStat(target, statTypes.maxHealth, statsComponent) }
-    private val mana = createIntProperty(VitalityHudProperties.Mana).from { statsService.getEffectiveStat(target, statTypes.mana, statsComponent) }
-    private val maxMana = createIntProperty(VitalityHudProperties.MaxMana).from { statsService.getEffectiveStat(target, statTypes.maxMana, statsComponent) }
-    private val hunger = createIntProperty(VitalityHudProperties.Hunger).from { statsService.getEffectiveStat(target, statTypes.hunger, statsComponent) }
+        createIntProperty(VitalityHudProperties.MaxHealth).from { statsService.getEffectiveStat(entity, statTypes.maxHealth, statsComponent) }
+    private val mana = createIntProperty(VitalityHudProperties.Mana).from { statsService.getEffectiveStat(entity, statTypes.mana, statsComponent) }
+    private val maxMana = createIntProperty(VitalityHudProperties.MaxMana).from { statsService.getEffectiveStat(entity, statTypes.maxMana, statsComponent) }
+    private val hunger = createIntProperty(VitalityHudProperties.Hunger).from { statsService.getEffectiveStat(entity, statTypes.hunger, statsComponent) }
     private val maxHunger =
-        createIntProperty(VitalityHudProperties.MaxHunger).from { statsService.getEffectiveStat(target, statTypes.maxHunger, statsComponent) }
+        createIntProperty(VitalityHudProperties.MaxHunger).from { statsService.getEffectiveStat(entity, statTypes.maxHunger, statsComponent) }
 }
 
 

@@ -6,4 +6,4 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)
-data class LoginTokenResponse(val username: String, val loginToken: String)
+data class LoginTokenResponse(val username: String, val loginToken: String, val gameServerHost: String, val gameServerPort: Int)
