@@ -19,7 +19,7 @@ class MobilitySystem(private val mobilityService: MobilityService) : IteratingSy
         }
         mobility.currentMove?.let {
             it.timePassed += deltaTime
-            if (it.timePassed >= it.duration) {
+            if (it.timePassed >= it.duration - 50) {
                 mobility.currentMove = null
             }
         }
