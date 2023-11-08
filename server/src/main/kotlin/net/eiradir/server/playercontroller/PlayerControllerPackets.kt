@@ -17,7 +17,10 @@ class PlayerControllerPackets(packets: PacketFactory, playerControllerService: P
         packets.registerPacketHandler(MoveInputPacket::class) { context, packet ->
             val connection = (context as? ServerNetworkContext)?.connectionEntity ?: return@registerPacketHandler
             val entity = playerControllerService.getControlledEntity(connection) ?: return@registerPacketHandler
-            transformMapper[entity]?.position = packet.position
+            val transform = transformMapper[entity] ?: return@registerPacketHandler
+            transform.direction = transform.position.directionTo(packet.position)
+            transform.lastDirection = transform.direction
+            transform.position = packet.position
         }
 
         packets.registerPacketHandler(TurnInputPacket::class) { context, packet ->
